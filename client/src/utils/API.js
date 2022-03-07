@@ -53,5 +53,11 @@ export const deleteBook = (bookId, token) => {
 // make a search to google books api
 // https://www.googleapis.com/books/v1/volumes?q=harry+potter
 export const searchGoogleBooks = (query) => {
-  return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+  return fetch(`https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=${query}`, {
+    headers: {
+        'accept': 'application/json',
+        'X-API-KEY': 'QuGU3VsbuiaHatDfs3f4g4tFDjZCcraY3lEyMOoP'
+    }
+}).then(response => response.json())
+.then(data => console.log(data));;
 };
